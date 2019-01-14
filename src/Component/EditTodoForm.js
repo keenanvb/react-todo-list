@@ -28,7 +28,7 @@ class EditTodo extends Component {
         <div className="Edit-Add">
             <form onSubmit={this.handleSubmit}>
             {/* <label>Edit todo</label> */}
-            <input style={{width:"90%",marginTop:"6%"}} maxlength="26" type="text" onChange={this.handleChange} value={this.state.text} placeholder="Update"></input>
+            <input style={{width:"90%",marginTop:"6%"}} maxLength="26" type="text" onChange={this.handleChange} value={this.state.text} placeholder="Update"></input>
             </form>
         </div>
       );

@@ -27,7 +27,7 @@ class AddTodo extends Component {
       return (
         <div style={{width:"50%",textAlign:"center",margin:"1% auto"}} className="Todo-Add">
             <form onSubmit={this.handleSubmit}>
-            <input style={{width:"40%",height:"80%"}}type="text" maxlength="26" onChange={this.handleChange} value={this.state.text} placeholder="Add todo"></input>
+            <input style={{width:"40%",height:"80%"}}type="text" maxLength="26" onChange={this.handleChange} value={this.state.text} placeholder="Add todo"></input>
             </form>
         </div>
       );

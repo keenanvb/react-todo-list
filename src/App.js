@@ -82,6 +82,27 @@ class App extends Component {
 
   }
 
+  getResult = () =>{
+    let completed;
+    let completedLength;
+    let list = this.state.todos.length;
+
+    if(list > 0 ){
+      completed = this.state.todos.filter((todo)=>{
+        return todo.completed === true;
+      });
+
+      completedLength = completed.length;
+    }else{
+      completedLength = 0
+    }
+
+    return {
+      completedLength,
+      list
+    }
+  }
+
   clear = () =>{
     this.setState({
       todos:''
@@ -89,17 +110,23 @@ class App extends Component {
   }
 
   render() {
+
+    let todoStats = this.getResult();
+    let todos = this.state.todos;
+
+
     return (
       <div className="App">
         <header className="App-header">
           <div>Todos</div>
           <div onClick={()=>{this.clear()}}>Clear</div>
+          <div>{todoStats.completedLength}/{todoStats.list}</div>
         </header>
         <AddTodo addTodo={this.addTodo} />
         <div style={{overflowY:"scroll", height:"500px"}}>
-        <Todos todos={this.state.todos} onDelete={this.onDelete} changeToggle={this.changeToggle} editTodo={this.editTodo} changeToggleCompleted={this.changeToggleCompleted}/>
+        <Todos todos={todos} onDelete={this.onDelete} changeToggle={this.changeToggle} editTodo={this.editTodo} changeToggleCompleted={this.changeToggleCompleted}/>
         </div>
-        <div class="footer">
+        <div className="footer">
 
         </div>
       </div>

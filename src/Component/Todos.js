@@ -14,7 +14,7 @@ class Todos extends Component {
                     <div key={index}>
            
                     <div style={{width:"30px",height:"15px",backgroundColor:"#4CAF50",cursor: "pointer"}} onClick={()=>{this.props.changeToggleCompleted(index)}}></div>
-                    <div style={{}} onClick={()=>{this.props.changeToggle(index)}}> 
+                    <div style={{cursor: "pointer"}} onClick={()=>{this.props.changeToggle(index)}}> 
                     {todos.completed ? <div style={{textDecoration: "line-through"}}>{todos.text}</div>:<div>{todos.text}</div>}
                     </div>
                     <div style={{width:"30px",height:"15px",backgroundColor:"#F44336",cursor: "pointer"}}onClick={()=>{this.props.onDelete(index)}}></div>
