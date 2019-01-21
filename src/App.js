@@ -13,6 +13,19 @@ class App extends Component {
     }]
   }
 
+  componentWillMount(){
+    let todos = this.state.todos;
+
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem('todos',JSON.stringify(todos));
+    }else if(localStorage.getItem("todos") !== null ){
+      let localStorageTodos = JSON.parse(localStorage.getItem('todos'));
+      this.setState({
+        todos:localStorageTodos
+      });
+    }
+  }
+
   onDelete = (id) =>{
     let delTodo = this.state.todos[id];
     let todos = this.state.todos.filter((todo) => {
@@ -22,6 +35,7 @@ class App extends Component {
     this.setState({
       todos
     });
+    localStorage.setItem('todos',JSON.stringify(todos));
   }
 
   addTodo = (newTodo) =>{
@@ -30,7 +44,9 @@ class App extends Component {
         this.setState({
           todos
         });
-      },250)  
+      },250);
+      
+      localStorage.setItem('todos',JSON.stringify(todos));
   }
 
 
@@ -42,6 +58,7 @@ class App extends Component {
     this.setState({
       todos: updatedTodos
     });
+    localStorage.setItem('todos',JSON.stringify(updatedTodos));
   }
 
   changeToggle = (id) =>{
@@ -60,7 +77,7 @@ class App extends Component {
     this.setState({
       todos
     });
-
+    localStorage.setItem('todos',JSON.stringify(todos));
   }
 
   changeToggleCompleted = (id) =>{
@@ -79,6 +96,7 @@ class App extends Component {
     this.setState({
       todos
     });
+    localStorage.setItem('todos',JSON.stringify(todos));
 
   }
 
@@ -113,8 +131,7 @@ class App extends Component {
 
     let todoStats = this.getResult();
     let todos = this.state.todos;
-
-
+    //let localStorageTodos = JSON.parse(localStorage.getItem('todos'));    
     return (
       <div className="App">
         <header className="App-header">
