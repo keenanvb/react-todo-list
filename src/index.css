@@ -35,3 +35,33 @@ code {
   color: white;
   text-align: center;
 }
+
+.Complete{
+  width: 30px;
+  height: 15px;
+  background-color: #4CAF50;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  /* opacity: 0.8; */
+}
+
+.Complete:hover {
+  width: 50px;
+  /* opacity: 1; */
+}
+
+.Delete{
+  width: 30px;
+  height: 15px;
+  background-color: #F44336;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  /* opacity: 0.8; */
+}
+
+.Delete:hover {
+  width: 50px;
+  /* opacity: 1; */
+}

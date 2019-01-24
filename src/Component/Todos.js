@@ -12,12 +12,11 @@ class Todos extends Component {
             this.props.todos.map((todos,index) => {
                 return (
                     <div key={index}>
-           
-                    <div style={{width:"30px",height:"15px",backgroundColor:"#4CAF50",cursor: "pointer"}} onClick={()=>{this.props.changeToggleCompleted(index)}}></div>
+                    <div className="Complete" onClick={()=>{this.props.changeToggleCompleted(index)}}></div>
                     <div style={{cursor: "pointer"}} onClick={()=>{this.props.changeToggle(index)}}> 
                     {todos.completed ? <div style={{textDecoration: "line-through"}}>{todos.text}</div>:<div>{todos.text}</div>}
                     </div>
-                    <div style={{width:"30px",height:"15px",backgroundColor:"#F44336",cursor: "pointer"}}onClick={()=>{this.props.onDelete(index)}}></div>
+                    <div className="Delete" onClick={()=>{this.props.onDelete(index)}}></div>
                     {todos.toggle ?  <div>
                         <EditTodoForm editTodo={this.props.editTodo} index={index}/>
                     </div> : null}
